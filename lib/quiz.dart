@@ -18,11 +18,12 @@ class _QuizState extends State<Quiz> {
 
   var activescreen='startpage';
   
-  @override
+ 
   //void initState() {
   //  activescreen = StartPage(switchScreen);
   //  super.initState();
   //}
+  
 
    void switchScreen() {
     setState(() {
@@ -30,7 +31,13 @@ class _QuizState extends State<Quiz> {
     });
   }
   @override
+  
   Widget build(context) {
+    Widget nextscreen = StartPage(switchScreen);
+    if (activescreen == 'questions_screen') {
+      nextscreen = const QuestoinsScreen();
+    } 
+    
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -41,7 +48,7 @@ class _QuizState extends State<Quiz> {
           end: Alignment.bottomRight,
         ),
       ),
-      child:  activescreen== 'startpage' ? StartPage(switchScreen) : const QuestoinsScreen(),
+      child:  nextscreen,
             ),
     ),
   );
