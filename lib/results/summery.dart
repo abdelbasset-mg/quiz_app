@@ -24,7 +24,7 @@ class QuestionsSummery extends StatelessWidget {
                 ),  
                 Expanded(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start ,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         data['question_text'] as String,

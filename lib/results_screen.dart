@@ -5,9 +5,10 @@ import 'package:quiz_app/results/summery.dart';
 
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key,required this.chosenAnswer});
+  const ResultsScreen({super.key,required this.chosenAnswer, required this.onRestart});
 
   final List<String> chosenAnswer;
+  final void Function() onRestart;
 
   
 
@@ -58,14 +59,19 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(height: 30),
             QuestionsSummery(getSummeryData()),
             const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Restart Quiz'),
-            ),
-          ],
+            TextButton.icon(
+              onPressed: onRestart,
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
+              icon: const Icon(Icons.refresh),
+              label: const Text('Restart Quiz!'),
+          
         )
+        ],
         ),
-      );
+      ),
+    );
     
   }
 }
